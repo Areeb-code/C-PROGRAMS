@@ -1,0 +1,21 @@
+#include <stdio.h>
+voidmain(void)
+{ Login(p,id);
+}
+int Login(int p,int id)
+{printf("\t\t*WELCOME*\t\t\n");
+     do{
+printf("Enter your Login ID & Password:");
+scanf("%d %d",&id,&p);
+if(id==2525)
+{ if(p==1234)
+      {printf("Welcome");
+      } 
+else{("Password is Invalid");
+}
+}
+else{if(p==1234)
+     {printf("ID is invalid");}
+	  else{printf("Try Again")}
+}}while(p==1234&&id==2525);
+}
