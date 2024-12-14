@@ -1,0 +1,43 @@
+#include <iostream>
+#include <cmath> // For nan() function
+using namespace std;
+
+// Optimized function to calculate nCr
+double nCr(int n, int r) {
+    if (r > n) {
+        cout << "Error: r cannot be greater than n." << endl;
+        return nan("");
+    }
+    if (r < 0 || n < 0) {
+        cout << "Error: n and r must be non-negative." << endl;
+        return nan("");
+    }
+    if (r == 0 || r == n) {
+        return 1;
+    }
+
+    // Use a more efficient approach to compute nCr
+    r = min(r, n - r); // Take advantage of symmetry
+    double result = 1;
+    for (int i = 1; i <= r; ++i) {
+        result *= (n - r + i) / static_cast<double>(i);
+    }
+    return result;
+}
+
+int main() {
+    int n, r;
+    cout << "ENTER 'n' in nCr: ";
+    cin >> n;
+    cout << "ENTER 'r' in nCr: ";
+    cin >> r;
+
+    double result = nCr(n, r);
+    if (!isnan(result)) {
+        cout << "nCr is: " << result << endl;
+    } else {
+        cout << "Unable to calculate nCr due to invalid input." << endl;
+    }
+
+    return 0;
+}
